@@ -1,19 +1,15 @@
-import React, {useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { MusicContext } from '../Context';
 import axios from 'axios';
-
+import Card from '../components/Card';
 
 const Artist = () => {
-
     const context_access_token = useContext(MusicContext);
-
     const [musicList, setMusicList] = useState([]);
 
     const getAudioFeatures_Track = async (access_token) => {
-        //request token using getAuth() function
+        const api_url = `https://api.spotify.com/v1/recommendations?limit=21&seed_artists=0bAsR2unSRpn6BQPEnNlZm&seed_genres=jpop%2C+kpop%2C+pop'`;
 
-        const api_url = `https://api.spotify.com/v1/recommendations?seed_artists=0bAsR2unSRpn6BQPEnNlZm&seed_genres=classical%2Ccountry&seed_tracks=0c6xIDDpzE81m2q797ordA`;
-        
         try {
             const response = await axios.get(api_url, {
                 headers: {
@@ -21,27 +17,43 @@ const Artist = () => {
                 }
             });
 
-            setMusicList(response.data.tracks);
-            console.log(response.data.tracks);
-            console.log(musicList);
-            
+            return response.data.tracks;
         } catch (error) {
             console.log(error);
+            return []; // Return an empty array in case of an error
         }
     };
 
     useEffect(() => {
-        getAudioFeatures_Track(context_access_token);
-    }, []);
+        const fetchData = async () => {
+            if (musicList.length === 0) {
+                const tracks = await getAudioFeatures_Track(context_access_token);
+                setMusicList(tracks);
+            }
+        };
+
+        fetchData();
+        console.log(musicList);
+    }, [context_access_token, musicList]);
 
     return (
-        <div>
-            {musicList.map((music) => {
-                <div>Hi</div>
-            })}
-
+        <div className='container'>
+            <div className='row card-row'>
+                {musicList.map((music) => (
+                    <div className='col-md-4' key={music.id}>
+                        <Card
+                            imageURL={music.album.images[0].url}
+                            songTitle={music.name}
+                            artist={music.artists[0].name}
+                            uri={music.uri}
+                        />
+                    </div>
+                ))}
+            </div>
         </div>
-    )
-}
+    );
 
-export default Artist
+
+};
+
+export default Artist;

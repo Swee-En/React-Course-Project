@@ -266,6 +266,7 @@ main > section {
   background-color: rgba(0, 0, 0, 0.77);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   padding: 5px 0;
+  margin-bottom: 32px;
 }
 
 #navigation.animated-header {
@@ -1503,3 +1504,45 @@ textarea.form-control {
   font-size: 13px;
 }
 /*# sourceMappingURL=style.css.map */
+
+/** 
+Custom CSS
+*/
+
+.navbar{
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: #252525;
+  border-radius: 15px;
+  width: 32rem;
+  height: 40rem;
+  padding: 16px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.card-img-top {
+  height: auto;
+  border-radius: 15px;
+}
+
+.card-title {
+  color: #ffffff;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 90%;
+  margin-top: 2rem;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

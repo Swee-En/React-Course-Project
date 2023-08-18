@@ -52,12 +52,16 @@ function App() {
       <MusicContext.Provider value={access_token}>
         <Header />
 
-        <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/home' element={<Home />} />
-          <Route exact path='/artist' element={<Artist />} />
-          <Route exact path='/genre' element={<Genre />} />
-        </Routes>
+        <div>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/home' element={<Home />} />
+            <Route exact path='/artist' element={<Artist />} />
+            <Route exact path='/genre' element={<Genre />} />
+          </Routes>
+        </div>
+
+
       </MusicContext.Provider>
 
     </div>
