@@ -79,6 +79,7 @@ main > section {
   border: 0;
   position: relative;
   text-transform: uppercase;
+  height: 100%;
 }
 
 .btn-blue {
@@ -1550,4 +1551,9 @@ Custom CSS
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
 }
