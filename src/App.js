@@ -9,6 +9,10 @@ import Home from './pages/Home';
 import Artist from './pages/Artist';
 import Genre from './pages/Genre';
 
+import { MusicContext } from './Context';
+
+//guide: https://ritvikbiswas.medium.com/connecting-to-the-spotify-api-using-node-js-and-axios-client-credentials-flow-c769e2bee818
+
 //const axios = require('axios');
 const qs = require('qs');
 
@@ -32,7 +36,6 @@ const getAuth = async () => {
       }
     })
     //return access token
-    console.log(response.data);
     return response.data.access_token;
     //console.log(response.data.access_token);   
   } catch (error) {
@@ -41,40 +44,22 @@ const getAuth = async () => {
   }
 }
 
-const getAudioFeatures_Track = async (track_id) => {
-  //request token using getAuth() function
-  const access_token = await getAuth();
-  //console.log(access_token);
-
-  const api_url = `https://api.spotify.com/v1/audio-features/${track_id}`;
-  //console.log(api_url);
-  try {
-    const response = await axios.get(api_url, {
-      headers: {
-        'Authorization': `Bearer ${access_token}`
-      }
-    });
-    console.log(response.data);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-console.log(getAudioFeatures_Track('07A0whlnYwfWfLQy4qh3Tq'));
-
+const access_token = await getAuth();
 
 function App() {
   return (
     <div>
-      <Header />
+      <MusicContext.Provider value={access_token}>
+        <Header />
 
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route exact path='/home' element={<Home />} />
-        <Route exact path='/artist' element={<Artist />} />
-        <Route exact path='/genre' element={<Genre />} />
-      </Routes>
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/artist' element={<Artist />} />
+          <Route exact path='/genre' element={<Genre />} />
+        </Routes>
+      </MusicContext.Provider>
+
     </div>
   );
 }
