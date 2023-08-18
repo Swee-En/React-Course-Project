@@ -1557,3 +1557,7 @@ Custom CSS
   display: flex;
   flex-direction: row;
 }
+
+.mb-form {
+  margin-bottom: 1rem;
+}

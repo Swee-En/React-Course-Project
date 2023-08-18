@@ -76,7 +76,7 @@ const Home = () => {
 
   return (
     <div className='container'>
-      <form>
+      <form className='mb-form'>
         <div className='search-bar'>
           <input type="text" name="searchTitle" onChange={handleChange} value={searchArtist} className='form-control' placeholder='Search by artist ID' />
           <span>

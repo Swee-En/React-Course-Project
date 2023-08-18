@@ -3,7 +3,7 @@ import { MusicContext } from '../Context';
 import axios from 'axios';
 import Card from '../components/Card';
 
-const Artist = () => {
+const Favorites = () => {
     const context_access_token = useContext(MusicContext);
     const [musicList, setMusicList] = useState([]);
 
@@ -56,4 +56,4 @@ const Artist = () => {
 
 };
 
-export default Artist;
+export default Favorites;

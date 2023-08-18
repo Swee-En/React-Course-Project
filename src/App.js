@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
-import Artist from './pages/Artist';
+import Favorites from './pages/Favorites';
 import Genre from './pages/Genre';
 
 import { MusicContext } from './Context';
@@ -56,7 +56,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/home' element={<Home />} />
-            <Route exact path='/artist' element={<Artist />} />
+            <Route exact path='/favorites' element={<Favorites />} />
             <Route exact path='/genre' element={<Genre />} />
           </Routes>
         </div>
