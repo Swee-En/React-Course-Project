@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { Buffer } from 'buffer';
 
-import Card from './components/Card';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import Artist from './pages/Artist';
@@ -60,6 +60,8 @@ function App() {
             <Route exact path='/genre' element={<Genre />} />
           </Routes>
         </div>
+
+        <Footer/>
 
 
       </MusicContext.Provider>

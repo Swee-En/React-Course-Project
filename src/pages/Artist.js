@@ -45,7 +45,7 @@ const Artist = () => {
                             imageURL={music.album.images[0].url}
                             songTitle={music.name}
                             artist={music.artists[0].name}
-                            uri={music.uri}
+                            url={music.external_urls.spotify}
                         />
                     </div>
                 ))}

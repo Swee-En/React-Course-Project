@@ -1497,7 +1497,8 @@ textarea.form-control {
 
 #footer-bottom {
   background: #2a2a2a;
-  padding: 20px 0;
+  padding: 32px 0;
+  margin-top: 8rem;
 }
 
 #footer-bottom p {
@@ -1539,6 +1540,10 @@ Custom CSS
   text-overflow: ellipsis;
   max-width: 90%;
   margin-top: 2rem;
+}
+
+.card-text {
+  color: #636363;
 }
 
 .center {

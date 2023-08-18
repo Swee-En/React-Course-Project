@@ -6,9 +6,10 @@ const Header = () => {
         <header id="navigation" className="fixed-top animated-header">
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark">
-                    <a className="navbar-brand" href="#body">
-                        <img className="img-fluid" src="assets/images/logo.png" alt=""/>
-                    </a>
+
+                    <Link to='/' className="navbar-brand">
+                        <img className="img-fluid" src="assets/images/logo.png" alt="" />
+                    </Link>
 
                     <div className="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto text-center" id="nav">
